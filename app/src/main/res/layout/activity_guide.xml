@@ -15,6 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/relativeLayout">
         <LinearLayout
+            android:id="@+id/zhsh_ll_guide"
             android:layout_width="wrap_content"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
@@ -23,20 +24,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
+                android:layout_marginRight="10dp"
                 android:src="@drawable/guide_dot_default" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="10dp"
-
+                android:layout_marginRight="10dp"
                 android:src="@drawable/guide_dot_default" />
 
             <ImageView
                 android:layout_width="wrap_content"
-                android:layout_margin="10dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:src="@drawable/guide_dot_default" />
@@ -45,7 +44,6 @@
         <ImageView
             android:id="@+id/zhsh_iv_dot_selected"
             android:layout_width="wrap_content"
-            android:layout_margin="10dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:src="@drawable/guide_dot_selected" />
@@ -53,11 +51,15 @@
     </RelativeLayout>
 
     <Button
+        android:background="@drawable/btn_press_selector"
+        android:id="@+id/shbd_btn_start"
         android:layout_width="wrap_content"
-        android:text="SDFSSDFDSF"
+        android:text="开始体验"
+        android:textColor="@color/txt_guide_selector"
         android:layout_height="wrap_content"
+        android:visibility="gone"
         android:layout_above="@+id/relativeLayout"
-        android:layout_alignStart="@+id/relativeLayout"
+        android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"/>
 
 </RelativeLayout>

@@ -2,6 +2,7 @@ package com.myzhsh.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -53,8 +54,19 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                //跳转到主页面
-                Intent intent=new Intent(SplashActivity.this,GuideActivity.class);
+                SharedPreferences preferences=getSharedPreferences("params",Activity.MODE_PRIVATE);
+                boolean firstCome = preferences.getBoolean("firstCome", true);
+
+                Intent intent=new Intent();
+                if (firstCome){
+                    //跳转到新手引导页面
+                    intent.setClass(SplashActivity.this,GuideActivity.class);
+                }
+                else {
+                    //跳转到主页面
+                    intent.setClass(SplashActivity.this,MainActivity.class);
+                }
+
                 startActivity(intent);
                 finish();
             }
