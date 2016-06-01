@@ -2,14 +2,12 @@ package com.myzhsh.activity;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
-import android.view.animation.ScaleAnimation;
+import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
+
+import com.myzhsh.utils.PrefUtils;
 
 /**
  * Created by yh on 2016/5/31.
@@ -22,31 +20,14 @@ public class SplashActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         mRlSplash= (RelativeLayout) findViewById(R.id.zhsh_rl_splash);
-        //旋转动画
-        RotateAnimation  rotateAnimation=new RotateAnimation(0,360f, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF,0.5f);
-        rotateAnimation.setDuration(1000);
-        rotateAnimation.setFillAfter(true);
-
-        //缩放动画
-        ScaleAnimation scaleAnimation=new ScaleAnimation(0,1,0,1, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF,0.5f);
-        scaleAnimation.setDuration(1000);
-        scaleAnimation.setFillAfter(true);
-
-        //渐变动画
-        AlphaAnimation alphaAnimation=new AlphaAnimation(0,1);
-        scaleAnimation.setDuration(2000);
-        scaleAnimation.setFillAfter(true);
 
         //动画集合
-        AnimationSet animationSet=new AnimationSet(true);
-        animationSet.addAnimation(rotateAnimation);
-        animationSet.addAnimation(scaleAnimation);
-        animationSet.addAnimation(alphaAnimation);
+        Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.guide_anim);
 
         //启动动画
-        mRlSplash.startAnimation(animationSet);
+        mRlSplash.startAnimation(animation);
 
-        animationSet.setAnimationListener(new Animation.AnimationListener() {
+        animation.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
 
@@ -54,9 +35,7 @@ public class SplashActivity extends Activity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                SharedPreferences preferences=getSharedPreferences("params",Activity.MODE_PRIVATE);
-                boolean firstCome = preferences.getBoolean("firstCome", true);
-
+                boolean firstCome =  PrefUtils.getBoolean("firstCome",true,getApplicationContext());
                 Intent intent=new Intent();
                 if (firstCome){
                     //跳转到新手引导页面

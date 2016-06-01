@@ -55,11 +55,11 @@
         android:id="@+id/shbd_btn_start"
         android:layout_width="wrap_content"
         android:text="开始体验"
+
         android:textColor="@color/txt_guide_selector"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_above="@+id/relativeLayout"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="50dp"/>
 
 </RelativeLayout>

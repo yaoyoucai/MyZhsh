@@ -1,8 +1,6 @@
 package com.myzhsh.activity;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,6 +12,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+
+import com.myzhsh.utils.PrefUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,6 +52,8 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
         mLlGuide= (LinearLayout) findViewById(R.id.zhsh_ll_guide);
 
         mBtnStart= (Button) findViewById(R.id.shbd_btn_start);
+        mBtnStart.setOnClickListener(this);
+
         mVpGuide= (ViewPager) findViewById(R.id.zhsh_vp_guide);
         mVpGuide.setAdapter(new ViewPagerAdapter());
 
@@ -138,10 +140,7 @@ public class GuideActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 finish();
 
-                SharedPreferences pre = getSharedPreferences("params", Activity.MODE_PRIVATE);
-                SharedPreferences.Editor edit = pre.edit();
-                edit.putBoolean("firstCome",false);
-                edit.commit();
+                PrefUtils.putBoolean("firstCome",false,getApplicationContext());
                 break;
         }
     }
