@@ -5,7 +5,7 @@
     android:orientation="vertical">
     <include layout="@layout/title_bar"/>
     <FrameLayout
-        android:id="@+id/shbd_fl_basepager_content"
+        android:id="@+id/zhsh_fl_basepager_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

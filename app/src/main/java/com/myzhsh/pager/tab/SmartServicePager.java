@@ -1,6 +1,6 @@
-package com.myzhsh.pager;
+package com.myzhsh.pager.tab;
 
-import android.content.Context;
+import android.app.Activity;
 
 import com.myzhsh.base.BasePager;
 
@@ -8,8 +8,8 @@ import com.myzhsh.base.BasePager;
  * Created by yh on 2016/6/1.
  */
 public class SmartServicePager extends BasePager {
-    public SmartServicePager(Context context) {
-        super(context);
+    public SmartServicePager(Activity activity) {
+        super(activity);
     }
 
     @Override

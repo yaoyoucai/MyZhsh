@@ -24,14 +24,9 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view=initView();
-        initData();
         return view;
     }
 
     public abstract View initView() ;
-
-    public void initData(){
-
-    }
 
 }

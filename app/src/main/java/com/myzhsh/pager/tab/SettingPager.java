@@ -1,6 +1,6 @@
-package com.myzhsh.pager;
+package com.myzhsh.pager.tab;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
 
 import com.myzhsh.base.BasePager;
@@ -9,8 +9,8 @@ import com.myzhsh.base.BasePager;
  * Created by yh on 2016/6/1.
  */
 public class SettingPager extends BasePager {
-    public SettingPager(Context context) {
-        super(context);
+    public SettingPager(Activity activity) {
+        super(activity);
     }
 
     @Override

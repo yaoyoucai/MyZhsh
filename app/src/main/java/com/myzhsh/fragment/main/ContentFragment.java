@@ -10,11 +10,11 @@ import com.myzhsh.activity.MainActivity;
 import com.myzhsh.activity.R;
 import com.myzhsh.base.BaseFragment;
 import com.myzhsh.base.BasePager;
-import com.myzhsh.pager.GovaffairsPager;
-import com.myzhsh.pager.HomePager;
-import com.myzhsh.pager.NewsCenterPager;
-import com.myzhsh.pager.SettingPager;
-import com.myzhsh.pager.SmartServicePager;
+import com.myzhsh.pager.tab.GovaffairsPager;
+import com.myzhsh.pager.tab.HomePager;
+import com.myzhsh.pager.tab.NewsCenterPager;
+import com.myzhsh.pager.tab.SettingPager;
+import com.myzhsh.pager.tab.SmartServicePager;
 import com.myzhsh.view.NoScrollViewPager;
 
 import java.util.ArrayList;
@@ -36,17 +36,18 @@ public class ContentFragment extends BaseFragment {
         View view = View.inflate(mActivity, R.layout.fragment_content, null);
         mVpContent = (NoScrollViewPager) view.findViewById(R.id.shbd_vp_content);
         mRgContent = (RadioGroup) view.findViewById(R.id.shbd_rg_content);
+        initData();
         return view;
     }
 
 
     public void initData() {
         mPagerList = new ArrayList<>();
-        mPagerList.add(new HomePager(getContext()));
-        mPagerList.add(new NewsCenterPager(getContext()));
-        mPagerList.add(new SmartServicePager(getContext()));
-        mPagerList.add(new GovaffairsPager(getContext()));
-        mPagerList.add(new SettingPager(getContext()));
+        mPagerList.add(new HomePager(mActivity));
+        mPagerList.add(new NewsCenterPager(mActivity));
+        mPagerList.add(new SmartServicePager(mActivity));
+        mPagerList.add(new GovaffairsPager(mActivity));
+        mPagerList.add(new SettingPager(mActivity));
 
         mVpContent.setAdapter(new ContentAdapter());
 
@@ -128,6 +129,11 @@ public class ContentFragment extends BaseFragment {
         mVpContent.setCurrentItem(currentItem, false);
         mPagerList.get(currentItem).initData();
         setSlidingMenuEnable(slidingMenuEnable);
+    }
+
+
+    public NewsCenterPager getNewsCenterPager(){
+        return (NewsCenterPager) mPagerList.get(1);
     }
 
 }

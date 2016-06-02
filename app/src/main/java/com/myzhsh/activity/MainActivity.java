@@ -10,10 +10,11 @@ import com.myzhsh.fragment.main.ContentFragment;
 import com.myzhsh.fragment.main.LeftMenuFragment;
 
 public class MainActivity extends AppCompatActivity {
-    public static final String TAG_FRAGMENT_LEFTMENU="left_menu";
-    public static final String TAG_FRAGMENT_CONTNET="content";
+    public static final String TAG_FRAGMENT_LEFTMENU = "left_menu";
+    public static final String TAG_FRAGMENT_CONTNET = "content";
 
     private SlidingMenu mSlidingMenu;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +25,9 @@ public class MainActivity extends AppCompatActivity {
         mSlidingMenu.setMode(SlidingMenu.LEFT);
         mSlidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
         mSlidingMenu.setBehindOffset(300);
-        mSlidingMenu.attachToActivity(MainActivity.this,SlidingMenu.SLIDING_WINDOW);
+        mSlidingMenu.attachToActivity(MainActivity.this, SlidingMenu.SLIDING_WINDOW);
         mSlidingMenu.setMenu(R.layout.left_menu);
-        
+
         initFragment();
     }
 
@@ -37,13 +38,31 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction fTrans = fm.beginTransaction();
 
-        fTrans.replace(R.id.shbd_fl_content,new ContentFragment(),TAG_FRAGMENT_CONTNET);
-        fTrans.replace(R.id.shbd_fl_leftmenu,new LeftMenuFragment(),TAG_FRAGMENT_LEFTMENU);
+        fTrans.replace(R.id.shbd_fl_content, new ContentFragment(), TAG_FRAGMENT_CONTNET);
+        fTrans.replace(R.id.shbd_fl_leftmenu, new LeftMenuFragment(), TAG_FRAGMENT_LEFTMENU);
 
         fTrans.commit();
     }
 
-    public SlidingMenu getSlidingMenu(){
+    public SlidingMenu getSlidingMenu() {
         return mSlidingMenu;
+    }
+
+    /**
+     * 获取到侧边栏fragment对象
+     * @return
+     */
+    public LeftMenuFragment getLeftMenuFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        return (LeftMenuFragment) fm.findFragmentByTag(TAG_FRAGMENT_LEFTMENU);
+    }
+
+    /**
+     * 获取到主体页fragment对象
+     * @return
+     */
+    public ContentFragment getContentFragment() {
+        FragmentManager fm = getSupportFragmentManager();
+        return (ContentFragment) fm.findFragmentByTag(TAG_FRAGMENT_CONTNET);
     }
 }

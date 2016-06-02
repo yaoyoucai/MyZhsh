@@ -1,7 +1,8 @@
 package com.myzhsh.base;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -12,22 +13,23 @@ import com.myzhsh.activity.R;
  * 页面布局基类
  */
 public abstract class BasePager {
-    protected Context mContext;
+    protected Activity mActivity;
 
     protected View mView;
     protected TextView mTvTitle;
     protected ImageButton mIbtnBack;
-
-    public BasePager(Context context) {
-        this.mContext = context;
+    protected FrameLayout mFlContent;
+    public BasePager(Activity activity) {
+        this.mActivity = activity;
         initView();
     }
 
     private void initView() {
-        mView = View.inflate(mContext, R.layout.base_pager, null);
+        mView = View.inflate(mActivity, R.layout.base_pager, null);
         mTvTitle = (TextView) mView.findViewById(R.id.shbd_tv_title);
         mIbtnBack = (ImageButton) mView.findViewById(R.id.shbd_ibtn_back);
-    }
+        mFlContent= (FrameLayout) mView.findViewById(R.id.zhsh_fl_basepager_content);
+    };
 
     public View getView(){
         return mView;
