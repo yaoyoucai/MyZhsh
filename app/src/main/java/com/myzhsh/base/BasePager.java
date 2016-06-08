@@ -6,6 +6,8 @@ import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+import com.myzhsh.activity.MainActivity;
 import com.myzhsh.activity.R;
 
 /**
@@ -17,7 +19,7 @@ public abstract class BasePager {
 
     protected View mView;
     protected TextView mTvTitle;
-    protected ImageButton mIbtnBack;
+    protected ImageButton mIbtnMenu;
     protected FrameLayout mFlContent;
     public BasePager(Activity activity) {
         this.mActivity = activity;
@@ -27,8 +29,17 @@ public abstract class BasePager {
     private void initView() {
         mView = View.inflate(mActivity, R.layout.base_pager, null);
         mTvTitle = (TextView) mView.findViewById(R.id.shbd_tv_title);
-        mIbtnBack = (ImageButton) mView.findViewById(R.id.shbd_ibtn_back);
+        mIbtnMenu = (ImageButton) mView.findViewById(R.id.shbd_ibtn_back);
         mFlContent= (FrameLayout) mView.findViewById(R.id.zhsh_fl_basepager_content);
+
+        mIbtnMenu .setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity activity = (MainActivity) mActivity;
+                SlidingMenu slidingMenu = activity.getSlidingMenu();
+                slidingMenu.toggle();
+            }
+        });
     };
 
     public View getView(){

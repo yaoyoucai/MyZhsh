@@ -1,1 +1,1 @@
-include ':app', ':slidingmenuLibrary'
+include ':app', ':slidingmenuLibrary', ':viewpagerindicator', ':viewpagerindicatorlibary'

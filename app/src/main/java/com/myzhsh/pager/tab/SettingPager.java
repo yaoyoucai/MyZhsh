@@ -18,6 +18,6 @@ public class SettingPager extends BasePager {
         mTvTitle.setText("设置");
 
         //隐藏菜单按钮
-        mIbtnBack.setVisibility(View.GONE);
+        mIbtnMenu.setVisibility(View.GONE);
     }
 }

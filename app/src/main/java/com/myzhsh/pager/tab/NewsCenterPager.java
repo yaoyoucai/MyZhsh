@@ -1,7 +1,6 @@
 package com.myzhsh.pager.tab;
 
 import android.app.Activity;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -14,6 +13,7 @@ import com.myzhsh.pager.newscenter.GroupIconDetailPager;
 import com.myzhsh.pager.newscenter.InteractDetailPager;
 import com.myzhsh.pager.newscenter.NewsDetailPager;
 import com.myzhsh.pager.newscenter.SubjectDetailPager;
+import com.myzhsh.utils.CacheUtils;
 import com.myzhsh.utils.Constants;
 
 import org.xutils.common.Callback;
@@ -26,7 +26,7 @@ import java.util.List;
 /**
  * Created by yh on 2016/6/1.
  */
-public class NewsCenterPager extends BasePager {
+public class NewsCenterPager extends BasePager{
     private List<BaseNewsCenterPager> newsCenterPagerList = new ArrayList<>();
 
     public NewsCenterPager(Activity activity) {
@@ -35,9 +35,15 @@ public class NewsCenterPager extends BasePager {
 
     @Override
     public void initData() {
-        mTvTitle.setText("新闻中心");
-
+        String cache = getDataFromCache();
+        if (cache != null) {
+            processResult(cache);
+        }
         getDataFromServer();
+    }
+
+    public String getDataFromCache() {
+        return CacheUtils.getCache(mActivity.getApplicationContext(), Constants.CATEGORIES_URL);
     }
 
     public void getDataFromServer() {
@@ -45,6 +51,9 @@ public class NewsCenterPager extends BasePager {
         x.http().get(params, new Callback.CommonCallback<String>() {
             @Override
             public void onSuccess(String result) {
+                //将数据存入缓存
+                CacheUtils.putCache(mActivity.getApplicationContext(), Constants.CATEGORIES_URL, result);
+
                 processResult(result);
             }
 
@@ -78,7 +87,7 @@ public class NewsCenterPager extends BasePager {
         LeftMenuFragment leftMenuFragment = activity.getLeftMenuFragment();
         leftMenuFragment.setData(newsMenuData.getData());
 
-        newsCenterPagerList.add(new NewsDetailPager(mActivity));
+        newsCenterPagerList.add(new NewsDetailPager(mActivity, newsMenuData.getData().get(0).getChildren()));
         newsCenterPagerList.add(new SubjectDetailPager(mActivity));
         newsCenterPagerList.add(new GroupIconDetailPager(mActivity));
         newsCenterPagerList.add(new InteractDetailPager(mActivity));
@@ -86,9 +95,16 @@ public class NewsCenterPager extends BasePager {
 
     public void loadDetailPager(int position) {
         mFlContent.removeAllViews();
-        TextView te
-                = (TextView) newsCenterPagerList.get(position).getRootView();
-        System.out.println(te.getText());
-        mFlContent.addView(te);
+        mFlContent.addView(newsCenterPagerList.get(position).getRootView());
     }
+
+    /**
+     * 设置新闻中心页的标题
+     *
+     * @param title
+     */
+    public void setTitle(String title) {
+        mTvTitle.setText(title);
+    }
+
 }

@@ -7,6 +7,7 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.myzhsh.activity.MainActivity;
 import com.myzhsh.activity.R;
 import com.myzhsh.base.BaseFragment;
@@ -46,8 +47,12 @@ public class LeftMenuFragment extends BaseFragment {
                 mCurrentPosition = position;
                 loadDetailPager(mCurrentPosition);
                 mAdapter.notifyDataSetChanged();
+
+                toggle();
             }
         });
+
+        mCurrentPosition=0;
     }
 
     class LeftMenuAdapter extends BaseAdapter {
@@ -106,7 +111,19 @@ public class LeftMenuFragment extends BaseFragment {
         MainActivity activity = (MainActivity) mActivity;
         ContentFragment contentFragment = activity.getContentFragment();
         NewsCenterPager newsCenterPager = contentFragment.getNewsCenterPager();
+
+        //为新闻中心页面设置标题
+        newsCenterPager.setTitle(mDataList.get(mCurrentPosition).getTitle());
         newsCenterPager.loadDetailPager(mCurrentPosition);
 
+    }
+
+    /**
+     * 控制侧边栏的开关
+     */
+    private void toggle(){
+        MainActivity activity = (MainActivity) mActivity;
+        SlidingMenu slidingMenu = activity.getSlidingMenu();
+        slidingMenu.toggle();
     }
 }

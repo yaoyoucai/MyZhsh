@@ -1,6 +1,7 @@
 package com.myzhsh.pager.newscenter;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,6 +19,8 @@ public class GroupIconDetailPager extends BaseNewsCenterPager {
     @Override
     protected View initView() {
         TextView textView=new TextView(mActivity.getApplicationContext());
+        textView.setTextColor(Color.RED);
+
         textView.setText("组图模块");
         return textView;
     }

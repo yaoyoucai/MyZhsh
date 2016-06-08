@@ -18,6 +18,6 @@ public class HomePager extends BasePager {
         mTvTitle.setText("首页");
 
         //隐藏菜单按钮
-        mIbtnBack.setVisibility(View.GONE);
+        mIbtnMenu.setVisibility(View.GONE);
     }
 }

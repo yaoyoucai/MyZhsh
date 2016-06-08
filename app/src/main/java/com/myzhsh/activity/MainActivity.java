@@ -1,15 +1,15 @@
 package com.myzhsh.activity;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
 import com.myzhsh.fragment.main.ContentFragment;
 import com.myzhsh.fragment.main.LeftMenuFragment;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends FragmentActivity {
     public static final String TAG_FRAGMENT_LEFTMENU = "left_menu";
     public static final String TAG_FRAGMENT_CONTNET = "content";
 

@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/MyZhsh.iml" filepath="$PROJECT_DIR$/MyZhsh.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/slidingmenuLibrary/slidingmenuLibrary.iml" filepath="$PROJECT_DIR$/slidingmenuLibrary/slidingmenuLibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagerindicator/viewpagerindicator.iml" filepath="$PROJECT_DIR$/viewpagerindicator/viewpagerindicator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/viewpagerindicatorlibary/viewpagerindicatorlibary.iml" filepath="$PROJECT_DIR$/viewpagerindicatorlibary/viewpagerindicatorlibary.iml" />
     </modules>
   </component>
 </project>
