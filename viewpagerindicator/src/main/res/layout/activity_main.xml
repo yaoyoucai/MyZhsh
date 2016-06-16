@@ -6,13 +6,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <shbd.viewpagerindicatorlibary.TabPageIndicator
+    <com.indicator.view.ViewPagerIndicator
         android:id="@+id/zhsh_vpi_indicator"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
 
-    </shbd.viewpagerindicatorlibary.TabPageIndicator>
+    </com.indicator.view.ViewPagerIndicator>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"

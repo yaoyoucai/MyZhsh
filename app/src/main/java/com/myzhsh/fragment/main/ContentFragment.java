@@ -35,7 +35,7 @@ public class ContentFragment extends BaseFragment {
     public View initView() {
         View view = View.inflate(mActivity, R.layout.fragment_content, null);
         mVpContent = (NoScrollViewPager) view.findViewById(R.id.shbd_vp_content);
-        mRgContent = (RadioGroup) view.findViewById(R.id.shbd_rg_content);
+        mRgContent = (RadioGroup) view.findViewById(R.id.shbd_rg_mycontent);
         initData();
         return view;
     }

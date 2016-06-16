@@ -10,18 +10,18 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/indicatorlibrary" />
             <option value="$PROJECT_DIR$/slidingmenuLibrary" />
             <option value="$PROJECT_DIR$/viewpagerindicator" />
-            <option value="$PROJECT_DIR$/viewpagerindicatorlibary" />
           </set>
         </option>
         <option name="myModules">
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/indicatorlibrary" />
             <option value="$PROJECT_DIR$/slidingmenuLibrary" />
             <option value="$PROJECT_DIR$/viewpagerindicator" />
-            <option value="$PROJECT_DIR$/viewpagerindicatorlibary" />
           </set>
         </option>
       </GradleProjectSettings>

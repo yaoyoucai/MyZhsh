@@ -12,7 +12,7 @@
 
     </com.myzhsh.view.NoScrollViewPager>
     <RadioGroup
-        android:id="@+id/shbd_rg_content"
+        android:id="@+id/shbd_rg_mycontent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/bottom_tab_bg"

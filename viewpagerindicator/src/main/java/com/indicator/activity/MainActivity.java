@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void initView() {
-        mIndicator= (ViewPagerIndicator) findViewById(R.id.viewpagerindicator);
+        mIndicator= (ViewPagerIndicator) findViewById(R.id.zhsh_vpi_indicator);
         mViewPager= (ViewPager) findViewById(R.id.viewpager);
     }
 
