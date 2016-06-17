@@ -107,4 +107,5 @@ public class NewsCenterPager extends BasePager{
         mTvTitle.setText(title);
     }
 
+
 }

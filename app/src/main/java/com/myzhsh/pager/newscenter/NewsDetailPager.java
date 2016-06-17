@@ -80,6 +80,9 @@ public class NewsDetailPager extends BaseNewsCenterPager implements IndicatorVie
 
     @Override
     protected void initData() {
+        /**
+         * 初始化12个页签对象
+         */
         pagerList = new ArrayList<>();
         for (NewsMenuData.NewsData.NewsTabData data : mDataList) {
             pagerList.add(new TabDetailPager(mActivity, data));
@@ -154,4 +157,5 @@ public class NewsDetailPager extends BaseNewsCenterPager implements IndicatorVie
         int size = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, mActivity.getResources().getDisplayMetrics());
         return size;
     }
+
 }

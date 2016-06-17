@@ -10,7 +10,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/indicatorapp" />
             <option value="$PROJECT_DIR$/indicatorlibrary" />
+            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/slidingmenuLibrary" />
             <option value="$PROJECT_DIR$/viewpagerindicator" />
           </set>
@@ -19,7 +21,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/indicatorapp" />
             <option value="$PROJECT_DIR$/indicatorlibrary" />
+            <option value="$PROJECT_DIR$/library" />
             <option value="$PROJECT_DIR$/slidingmenuLibrary" />
             <option value="$PROJECT_DIR$/viewpagerindicator" />
           </set>

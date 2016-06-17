@@ -5,8 +5,6 @@
     <color name="colorAccent">#FF4081</color>
 
 
-    <color name="tab_top_text_1">#aaa</color>
-    <color name="tab_top_text_2">#000</color>
-    <color name="tab_top2_text_1">#000</color>
-    <color name="tab_top2_text_2">#fff</color>
+    <color name="tab_top_text_1">#000</color>
+    <color name="tab_top_text_2">#ec0200</color>
 </resources>
